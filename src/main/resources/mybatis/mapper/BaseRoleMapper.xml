@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.github.peng.spring.boot.security.demo.mapper.mapper.BaseRoleMapper" >
+  <resultMap id="BaseResultMap" type="com.github.peng.spring.boot.security.demo.mapper.model.BaseRole" >
+    <!--
+      WARNING - @mbggenerated
+    -->
+    <id column="ID" property="id" jdbcType="VARCHAR" />
+    <result column="ROLE_CODE" property="roleCode" jdbcType="VARCHAR" />
+    <result column="ROLE_NAME" property="roleName" jdbcType="VARCHAR" />
+  </resultMap>
+
+  <!-- 根据菜单id查询所属角色 -->
+  <select id="selectRolesByMenuId" resultMap="BaseResultMap">
+    SELECT br.* FROM BASE_ROLE br LEFT JOIN BASE_ROLE_MENU brm ON br.ID = brm.ROLE_ID WHERE brm.MENU_ID = #{menuId}
+  </select>
+
+  <!-- 根据用户id查询角色 -->
+  <select id="selectRolesByUserId" resultMap="BaseResultMap" parameterType="String">
+    SELECT br.* FROM BASE_ROLE br LEFT JOIN BASE_USER_ROLE bur on br.ID = bur.ROLE_ID WHERE bur.USER_ID = #{userId}
+  </select>
+</mapper>
