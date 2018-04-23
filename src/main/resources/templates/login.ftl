@@ -25,7 +25,7 @@
         <h2 class="ui teal image header">
             <img src="images/logo.png" class="image">
             <div class="content">
-                登录到账号
+                Security-Demo
             </div>
         </h2>
         <form id="form" class="ui large form" action="login" method="post">
@@ -33,7 +33,7 @@
                 <div class="field">
                     <div class="ui left icon input">
                         <i class="user icon"></i>
-                        <input id="username" name="username" placeholder="邮箱地址">
+                        <input id="username" name="username" placeholder="用户名">
                     </div>
                 </div>
                 <div class="field">
